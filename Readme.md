@@ -20,12 +20,9 @@ Modules
 
 Great section to have, but WAY too early.
 
-Module: Package Managers
-----------------
+#### Package Managers
 
-
-
-#### Apt
+##### Apt
 
 Control settings for apt-get
 
