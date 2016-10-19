@@ -29,7 +29,7 @@ Module: Package Managers
 
 Control settings for apt-get
 
-    ``` json
+    ``` html
     {
       apt: {
         run_at: 801,
