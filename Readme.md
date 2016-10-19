@@ -47,6 +47,8 @@ Control settings for apt-get
 
 ### File Installer
 
+#### file_install
+
 Install files options overview
 
 ``` javascript
@@ -148,5 +150,95 @@ Real example #4
       command: 'bash /tmp/suzie.tmp',
     }
   }
+}
+```
+
+
+### Directory Modules
+
+
+#### dir_install
+
+Install directory options overview
+
+``` javascript
+{
+  dir_install: {
+    '/tmp/test': {
+      source: 'fer://test',
+      dir_mode: '0750',
+      mode: '0640',
+      owner: 'root',
+      group: 'root',
+      command: function() {
+        return fer.do(function(deferred) {
+          // do something here
+          deferred.resolve();
+        });
+      },
+    }
+  }
+}
+```
+
+
+Real example #1
+``` javascript
+{
+  dir_install: {
+    '/tmp/test': {
+      source: 'fer://folder',
+      dir_mode: 750,
+    }
+  }
+}
+```
+
+
+#### dir_ensure
+
+Ensure directory exists options overview
+
+``` javascript
+{
+  dir_ensure: {
+    '/tmp/test': {
+      dir_mode: '0750',
+      mode: '0640',
+      owner: 'root',
+      group: 'root',
+      command: function() {
+        return fer.do(function(deferred) {
+          fer.command('ls -al').then(function() {
+            deferred.resolve();
+          });
+        });
+      },
+    }
+  }
+}
+```
+
+Real example #1
+``` javascript
+{
+  dir_install: {
+    run_at: 900,
+    '/tmp/test': {
+      source: 'fer://folder',
+      dir_mode: 750,
+      command: function() {
+        return fer.do(function(deferred) {
+          deferred.resolve();
+        });
+      },
+    }
+  },
+  dir_ensure: {
+    run_at: 901,
+    '/tmp/test/logs': {
+      dir_mode: '0750',
+    }
+  },
 }
 ```
