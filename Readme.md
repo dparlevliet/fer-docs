@@ -29,19 +29,19 @@ Module: Package Managers
 
 Control settings for apt-get
 
-    ``` html
-    {
-      apt: {
-        run_at: 801,
-        deb_options: [
-          "mariadb-server-5.5 mysql-server/root_password password asdf",
-        ],
-        packages: [
-          'mariadb-server-5.5',
-        ],
-        purge: [
-          'mariadb-server-5.1',
-        ],
-      }
-    }
-    ```
+``` javascript
+{
+  apt: {
+    run_at: 801,
+    deb_options: [
+      "mariadb-server-5.5 mysql-server/root_password password asdf",
+    ],
+    packages: [
+      'mariadb-server-5.5',
+    ],
+    purge: [
+      'mariadb-server-5.1',
+    ],
+  }
+}
+```
