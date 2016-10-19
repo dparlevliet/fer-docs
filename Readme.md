@@ -30,6 +30,8 @@ Control settings for apt-get
 {
   apt: {
     run_at: 801,
+    always_update: false,
+    always_upgrade: false,
     deb_options: [
       "mariadb-server-5.5 mysql-server/root_password password asdf",
     ],
