@@ -242,3 +242,47 @@ Real example #1
   },
 }
 ```
+
+
+### User and Groups Modules
+
+
+#### user
+
+Ensure users are added or removed
+
+``` javascript
+{
+  user: {
+    testuser: {
+      name: "Full User Name",
+      uid: 1000,
+      gid: 1000,
+      groups: ["testgroup", "wheel"],
+      password: '!',       # Preferably specify a MD5 encoded password instead of plaintext
+      force_password: true,       # Reset the password if it's changed on the system
+      home: "/home/testuser",  # Create home directory here
+      shell: "/bin/bash",
+      ssh_keys: ["key@keydomain"],
+      homedir_mode: 0750,
+    },
+    baduser: null,  # Remove this user
+  },
+}
+```
+
+
+#### group
+
+Ensure groups are added or removed
+
+``` javascript
+{
+  group: {
+    testgroup: {
+      gid: 998,
+    },
+    badgroup: null,  # Remove this group
+  },
+}
+```
